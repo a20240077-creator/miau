@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Integral | Vista general</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body class="preview-page">
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-badge" style="background:#eff6ff;color:#2563eb;border-color:#dbeafe;">⚡</div>
+            <span style="color:#18212f;">Edu Integral</span>
+        </div>
+        <div class="topbar-actions">
+            <a href="/login" class="btn btn-primary">Abrir login</a>
+        </div>
+    </header>
+
+    <section class="preview-hero">
+        <div class="dashboard-header">
+            <h1>Proyecto integrador listo para presentación</h1>
+            <p>
+                El backend ya responde con rutas REST y la interfaz ya está conectada. Puedes entrar como docente o como alumno y simular actividad del módulo IoT.
+            </p>
+        </div>
+    </section>
+
+    <section class="preview-grid">
+        <article class="panel preview-card">
+            <div class="panel-header">
+                <div>
+                    <h2>Lo que ya quedó implementado</h2>
+                    <p>Backend + CSS + conexión frontend con endpoints.</p>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="info-box">
+                    <strong>Autenticación por rol</strong>
+                    <span>Redirige a vista docente o alumno.</span>
+                </div>
+                <div class="info-box">
+                    <strong>Dashboard docente</strong>
+                    <span>Muestra alumnos, estado de módulo, métricas y SOS.</span>
+                </div>
+                <div class="info-box">
+                    <strong>Panel alumno</strong>
+                    <span>Muestra actividad, tareas, progreso y audio.</span>
+                </div>
+                <div class="info-box">
+                    <strong>Modo demo</strong>
+                    <span>No depende de MySQL para funcionar localmente.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="panel preview-card">
+            <div class="panel-header">
+                <div>
+                    <h2>Endpoints principales</h2>
+                    <p>Listos para pruebas en Postman o fetch.</p>
+                </div>
+            </div>
+
+            <div class="api-list">
+                <div class="api-box">
+                    <code>POST /api/auth/login</code>
+                    <p>Autenticación con usuario o correo y contraseña.</p>
+                </div>
+                <div class="api-box">
+                    <code>GET /api/docente/dashboard</code>
+                    <p>Resumen global del grupo y estado del backend.</p>
+                </div>
+                <div class="api-box">
+                    <code>GET /api/alumno/:id/resumen</code>
+                    <p>Resumen del alumno, actividad, tareas y métricas.</p>
+                </div>
+                <div class="api-box">
+                    <code>POST /api/alumno/:id/sos</code>
+                    <p>Dispara una alerta para el panel docente.</p>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
