@@ -1,0 +1,813 @@
+:root {
+    --bg: #f3f6fb;
+    --panel: #ffffff;
+    --panel-2: #f9fbff;
+    --text: #18212f;
+    --muted: #64748b;
+    --border: #d9e3f0;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --success: #16a34a;
+    --warning: #f59e0b;
+    --danger: #dc2626;
+    --danger-dark: #b91c1c;
+    --shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+    --radius: 24px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--text);
+    background: linear-gradient(180deg, #f8fbff 0%, #eef3fa 100%);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 0.95rem 1rem;
+    background: #fff;
+    color: var(--text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: rgba(37, 99, 235, 0.6);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
+}
+
+.page-login {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+}
+
+.login-shell {
+    width: min(1040px, 100%);
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    background: var(--panel);
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(217, 227, 240, 0.8);
+}
+
+.login-aside {
+    padding: 3rem;
+    background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.2), transparent 48%),
+        linear-gradient(145deg, #0f172a, #1e3a8a 70%, #1d4ed8 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.brand-badge {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.login-copy h1,
+.dashboard-header h1,
+.student-hero h1 {
+    margin: 0 0 0.9rem;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    line-height: 1.05;
+}
+
+.login-copy p,
+.muted {
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.6;
+}
+
+.feature-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.feature-item {
+    padding: 1rem 1.1rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.feature-item strong {
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.login-card {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.card-subtitle {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+.form-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 0.45rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 50px;
+    padding: 0.9rem 1.15rem;
+    border-radius: 14px;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    color: #fff;
+    background: linear-gradient(135deg, var(--primary), #4f46e5);
+    box-shadow: 0 14px 24px rgba(37, 99, 235, 0.24);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-dark), #4338ca);
+}
+
+.btn-secondary {
+    background: #fff;
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--success), #15803d);
+    color: #fff;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, var(--danger), var(--danger-dark));
+    color: #fff;
+}
+
+.btn-ghost {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.info-box,
+.status-box,
+.metric-card,
+.student-card,
+.lesson-box,
+.task-box,
+.alert-box,
+.api-box {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.05);
+}
+
+.info-box {
+    padding: 1rem 1.1rem;
+    background: #f8fbff;
+}
+
+.info-box strong {
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.inline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: #eff6ff;
+    color: var(--primary);
+}
+
+.tag.success {
+    background: #ecfdf3;
+    color: var(--success);
+}
+
+.tag.warning {
+    background: #fff7ed;
+    color: var(--warning);
+}
+
+.tag.danger {
+    background: #fef2f2;
+    color: var(--danger);
+}
+
+.flash-message {
+    min-height: 52px;
+    display: none;
+    align-items: center;
+    gap: 0.8rem;
+    border-radius: 16px;
+    padding: 0.9rem 1rem;
+    font-weight: 600;
+}
+
+.flash-message.show {
+    display: flex;
+}
+
+.flash-success {
+    background: #ecfdf3;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.flash-error {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.preview-page,
+.dashboard-page,
+.student-page {
+    min-height: 100vh;
+}
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid rgba(217, 227, 240, 0.8);
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.sidebar {
+    background: linear-gradient(180deg, #142235 0%, #1b3353 100%);
+    color: #fff;
+    border-radius: 30px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-height: calc(100vh - 8.5rem);
+}
+
+.sidebar .muted {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.user-box {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-menu {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.menu-link {
+    padding: 0.95rem 1rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    font-weight: 700;
+}
+
+.menu-link.active {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.95), rgba(79, 70, 229, 0.95));
+}
+
+.dashboard-main,
+.student-main {
+    display: grid;
+    gap: 1.4rem;
+}
+
+.dashboard-header,
+.student-hero {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(79, 70, 229, 0.08));
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    border-radius: 30px;
+    padding: 1.6rem;
+}
+
+.dashboard-header p,
+.student-hero p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.metric-card {
+    padding: 1.25rem;
+}
+
+.metric-card h3 {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.metric-card strong {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 2rem;
+}
+
+.metric-card span {
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.panel-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1rem;
+}
+
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 1.35rem;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.panel-header h2 {
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+.panel-header p {
+    margin: 0.25rem 0 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.student-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.student-card {
+    padding: 1.15rem;
+}
+
+.student-card-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.student-meta {
+    display: flex;
+    gap: 0.85rem;
+    align-items: center;
+}
+
+.student-meta h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.student-meta p,
+.card-row small,
+.task-box p,
+.alert-box p {
+    margin: 0.2rem 0 0;
+    color: var(--muted);
+}
+
+.progress {
+    width: 100%;
+    height: 11px;
+    border-radius: 999px;
+    background: #e9eef7;
+    overflow: hidden;
+}
+
+.progress > span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--primary), #4f46e5);
+}
+
+.progress.success > span {
+    background: linear-gradient(90deg, #16a34a, #22c55e);
+}
+
+.progress.warning > span {
+    background: linear-gradient(90deg, #f59e0b, #f97316);
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.72rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.status-pill.online {
+    background: #ecfdf3;
+    color: #15803d;
+}
+
+.status-pill.offline {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.card-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+}
+
+.alert-list,
+.task-list {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.alert-box,
+.task-box,
+.lesson-box,
+.status-box {
+    padding: 1rem;
+}
+
+.alert-box {
+    border-left: 5px solid var(--danger);
+}
+
+.alert-box.resolved {
+    border-left-color: var(--success);
+    background: #f7fff9;
+}
+
+.alert-box header,
+.task-box header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 0.7rem;
+}
+
+.task-box {
+    background: #fcfdff;
+}
+
+.task-box.completed {
+    background: #f7fff9;
+    border-color: #b7efc5;
+}
+
+.task-title {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.student-shell {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 1.4rem;
+    padding: 1.5rem;
+}
+
+.student-sidebar {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+}
+
+.iot-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.8rem;
+    border-radius: 999px;
+    background: #ecfdf3;
+    color: #15803d;
+    font-weight: 800;
+    font-size: 0.85rem;
+}
+
+.lesson-panel {
+    display: grid;
+    gap: 1rem;
+}
+
+.lesson-stage {
+    min-height: 500px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+}
+
+.lesson-icon {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1.25rem;
+    border-radius: 28px;
+    display: grid;
+    place-items: center;
+    font-size: 4.5rem;
+    background: linear-gradient(135deg, #eff6ff, #fff7ed);
+    border: 2px dashed rgba(245, 158, 11, 0.45);
+}
+
+.lesson-stage h2 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.lesson-stage p {
+    max-width: 720px;
+    margin: 0 auto 1.25rem;
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 1.06rem;
+}
+
+.lesson-actions,
+.footer-actions {
+    display: flex;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+}
+
+.footer-actions {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sos-fixed {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 30;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--danger), var(--danger-dark));
+    color: #fff;
+    font-weight: 900;
+    box-shadow: 0 20px 30px rgba(220, 38, 38, 0.28);
+}
+
+.preview-hero {
+    padding: 2rem 1.5rem 0;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.preview-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 1rem;
+}
+
+.preview-card {
+    padding: 1.35rem;
+}
+
+.api-list {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.api-box code {
+    display: inline-block;
+    margin-bottom: 0.35rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: 10px;
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+.empty-state {
+    padding: 2rem;
+    text-align: center;
+    color: var(--muted);
+}
+
+@media (max-width: 1100px) {
+    .login-shell,
+    .preview-grid,
+    .student-shell,
+    .panel-grid,
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .student-grid,
+    .metrics-grid,
+    .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sidebar {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 720px) {
+    .page-login,
+    .layout,
+    .student-shell,
+    .preview-grid,
+    .preview-hero,
+    .topbar {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .login-card,
+    .login-aside,
+    .panel,
+    .dashboard-header,
+    .student-hero,
+    .lesson-stage {
+        padding: 1.25rem;
+    }
+
+    .metrics-grid,
+    .student-grid,
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-actions,
+    .lesson-actions,
+    .topbar,
+    .panel-header,
+    .student-card-header,
+    .alert-box header,
+    .task-box header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sos-fixed {
+        width: 68px;
+        height: 68px;
+        right: 1rem;
+        bottom: 1rem;
+    }
+}
