@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Integral | Dashboard docente</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body class="dashboard-page" data-page="dashboard">
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-badge" style="background:#eff6ff;color:#2563eb;border-color:#dbeafe;">⚡</div>
+            <span style="color:#18212f;">Edu Integral</span>
+        </div>
+        <div class="topbar-actions">
+            <span class="tag success">Monitoreo activo</span>
+            <button class="btn btn-secondary" data-logout>Cerrar sesión</button>
+        </div>
+    </header>
+
+    <section class="layout">
+        <aside class="sidebar">
+            <div>
+                <div class="brand">
+                    <div class="brand-badge">📊</div>
+                    <span>Panel docente</span>
+                </div>
+                <p class="muted" style="margin-top:1rem;">Control del grupo, estado del módulo IoT y alertas SOS en tiempo real.</p>
+            </div>
+
+            <div class="user-box">
+                <div class="avatar">DA</div>
+                <div>
+                    <strong id="docente-nombre">Docente</strong>
+                    <p class="muted">Rol: docente</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a class="menu-link active" href="#">Monitoreo general</a>
+                <a class="menu-link" href="#students-panel">Alumnos</a>
+                <a class="menu-link" href="#alerts-panel">Alertas</a>
+            </nav>
+
+            <div class="info-box" style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.1); color:#fff;">
+                <strong>Estado de la base de datos</strong>
+                <span id="db-status" class="muted">Verificando conexión...</span>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <section class="dashboard-header">
+                <h1>Monitoreo en tiempo real</h1>
+                <p>Vista general del grupo, tareas y eventos reportados desde el módulo físico.</p>
+            </section>
+
+            <div id="dashboard-message" class="flash-message"></div>
+
+            <section class="metrics-grid">
+                <article class="metric-card">
+                    <h3>Alumnos registrados</h3>
+                    <strong id="metric-alumnos">0</strong>
+                    <span>Total del grupo</span>
+                </article>
+                <article class="metric-card">
+                    <h3>Conectados</h3>
+                    <strong id="metric-conectados">0</strong>
+                    <span>Módulos activos</span>
+                </article>
+                <article class="metric-card">
+                    <h3>Alertas activas</h3>
+                    <strong id="metric-alertas">0</strong>
+                    <span>Solicitudes SOS pendientes</span>
+                </article>
+                <article class="metric-card">
+                    <h3>Promedio grupal</h3>
+                    <strong id="metric-promedio">0%</strong>
+                    <span>Avance general</span>
+                </article>
+            </section>
+
+            <section class="panel-grid">
+                <article id="students-panel" class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <h2>Estado de alumnos</h2>
+                            <p>Progreso, respuestas y módulo físico asignado.</p>
+                        </div>
+                    </div>
+                    <div id="student-grid" class="student-grid">
+                        <div class="empty-state">Cargando alumnos...</div>
+                    </div>
+                </article>
+
+                <article id="alerts-panel" class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <h2>Alertas y eventos</h2>
+                            <p>SOS emitidas desde el panel alumno.</p>
+                        </div>
+                    </div>
+                    <div id="alerts-list" class="alert-list">
+                        <div class="empty-state">Cargando alertas...</div>
+                    </div>
+                </article>
+            </section>
+        </main>
+    </section>
+
+    <script src="/js/simulacion.js"></script>
+</body>
+</html>
