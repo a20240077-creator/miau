@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Integral | Panel alumno</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body class="student-page" data-page="alumno" data-alumno-id="2">
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-badge" style="background:#eff6ff;color:#2563eb;border-color:#dbeafe;">⚡</div>
+            <span style="color:#18212f;">Edu Integral</span>
+        </div>
+        <div class="topbar-actions">
+            <span id="iot-status" class="iot-badge">Cargando estado...</span>
+            <button class="btn btn-secondary" data-logout>Cerrar sesión</button>
+        </div>
+    </header>
+
+    <section class="student-shell">
+        <aside class="student-sidebar">
+            <article class="status-box">
+                <div class="student-meta">
+                    <div id="alumno-iniciales" class="avatar" style="background:#dbeafe;color:#2563eb;">AL</div>
+                    <div>
+                        <h3 id="alumno-nombre">Alumno</h3>
+                        <p>Panel individual de actividades</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="status-box">
+                <div class="panel-header" style="margin-bottom:0.8rem;">
+                    <div>
+                        <h2>Avance de tareas</h2>
+                        <p>Progreso general del alumno</p>
+                    </div>
+                    <span id="task-progress-text" class="tag">0/0</span>
+                </div>
+                <div class="progress"><span id="task-progress-bar" style="width:0%"></span></div>
+            </article>
+
+            <article class="status-box">
+                <div class="panel-header" style="margin-bottom:0.8rem;">
+                    <div>
+                        <h2>Métricas</h2>
+                        <p>Datos generados por la sesión</p>
+                    </div>
+                </div>
+                <div class="grid-2">
+                    <div class="info-box">
+                        <strong id="metric-correctas">0 / 0</strong>
+                        <span>Correctas</span>
+                    </div>
+                    <div class="info-box">
+                        <strong id="metric-tiempo">0 s</strong>
+                        <span>Promedio</span>
+                    </div>
+                    <div class="info-box">
+                        <strong id="metric-atencion">0 min</strong>
+                        <span>Atención</span>
+                    </div>
+                    <div class="info-box" id="alerta-actual">
+                        <span class="tag success">Sin alertas</span>
+                        <p>Sin incidencias activas.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="status-box">
+                <div class="panel-header" style="margin-bottom:0.8rem;">
+                    <div>
+                        <h2>Tareas asignadas</h2>
+                        <p>Listado de entregables pendientes</p>
+                    </div>
+                </div>
+                <div id="task-list" class="task-list">
+                    <div class="empty-state">Cargando tareas...</div>
+                </div>
+            </article>
+        </aside>
+
+        <main class="lesson-panel">
+            <section class="student-hero">
+                <h1>Modo aula</h1>
+                <p>Interfaz para registrar actividades, estímulos y progreso del alumno durante la sesión.</p>
+            </section>
+
+            <div id="alumno-message" class="flash-message"></div>
+
+            <article class="lesson-box lesson-stage">
+                <div>
+                    <div class="lesson-icon">📦</div>
+                    <span class="tag warning" id="actividad-actual">Actividad</span>
+                    <h2>Contenido guiado</h2>
+                    <p id="actividad-descripcion">Cargando contenido...</p>
+                    <div class="lesson-actions" style="justify-content:center;">
+                        <button id="btn-escuchar" class="btn btn-primary">Escuchar explicación</button>
+                        <button id="btn-siguiente" class="btn btn-success">Registrar avance</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="panel">
+                <div class="footer-actions">
+                    <div class="inline-tags">
+                        <span class="tag">Sesión activa</span>
+                        <span class="tag success">Monitoreo habilitado</span>
+                    </div>
+                    <button id="btn-sos" class="btn btn-danger">Enviar alerta SOS</button>
+                </div>
+            </article>
+        </main>
+    </section>
+
+    <button id="btn-sos-floating" class="sos-fixed" onclick="document.getElementById('btn-sos').click()">SOS</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const matches = window.location.pathname.match(/\/alumno\/app\/(\d+)/);
+            if (matches) {
+                document.body.dataset.alumnoId = matches[1];
+            }
+        });
+    </script>
+    <script src="/js/simulacion.js"></script>
+</body>
+</html>
